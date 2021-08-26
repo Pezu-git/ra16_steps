@@ -1,0 +1,68 @@
+.App {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.containerHeader {
+  display: flex;
+}
+
+.containerInputDate, 
+.containerInputDistance,
+.buttonOkContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px;
+}
+
+
+.input {
+  background: #f7f3f3;
+  color: #333;
+  border: 1px solid;
+  border-radius: 10px;
+  background: #f7f3f3;
+  font-size: 2rem;
+  text-align: center;
+  width: 200px;
+  margin: 20px 0;
+  padding: 5px 0 5px 0;
+}
+
+.buttonOkContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buttonOk {
+  margin: 42px 0;
+  padding: 15px 0 15px 0;
+  border: 1px solid;
+  border-radius: 10px;
+  background: #f7f3f3;
+  width: 100px;
+  cursor: pointer;
+}
+
+.diaryHeaderContainer {
+  display: flex;
+  width: 500px;
+  margin: auto;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
