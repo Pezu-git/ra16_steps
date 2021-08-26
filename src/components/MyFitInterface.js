@@ -1,17 +1,19 @@
+import DateInput from './DateInput'
+import React, { useState } from "react";
+import DateList from './DateList';
 
-
-import MyFitActivity from "./MyFitActivity"
 
 function MyFitInterface(prop) {
+  const [books, setBooks] = useState([]);
+  const handleAdd = book => { setBooks(prevBooks => [...prevBooks, book]);}
+  const [filter, setFilter] = useState('');
 
+  const filtered = books.filter( o => o.name.toLowerCase().includes(filter.trim().toLowerCase()))
 
   return (
     <div>
       <div className="containerHeader">
-        <form className="containerInputDate">
-          <label htmlFor="dateInput">Дата (ДД.ММ.ГГ)</label>
-          <input className="input" type="text" id="dateInput"></input>
-        </form>
+          <DateInput onAdd={handleAdd} />
         <form className="containerInputDistance">
           <label htmlFor="distanceInput">Пройдено км</label>
           <input className="input" type="text" id="distanceInput"></input>
@@ -26,6 +28,8 @@ function MyFitInterface(prop) {
           <p className="diaryHeaderText">Пройдено км</p>
           <p className="diaryHeaderText">Действия</p>
         </div>
+        <DateList books={filtered} />
+
         <div className="diaryTableContainer">
           <div className="dateColumn">
 

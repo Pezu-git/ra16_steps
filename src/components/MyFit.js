@@ -1,12 +1,16 @@
 
+import React from "react";
 
 import MyFitInterface from './MyFitInterface'
 
 function MyFit(props) {
-
+  
 
   return (
-    <MyFitInterface classNmae="Add"/>
+    <React.Fragment>
+      <MyFitInterface />
+      
+    </React.Fragment>
   )
 }
 
