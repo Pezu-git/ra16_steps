@@ -8,6 +8,9 @@
   align-items: center;
 }
 
+.container {
+  width: 600px;
+}
 .containerHeader {
   display: flex;
 }
@@ -41,7 +44,7 @@
 }
 
 .buttonOk {
-  margin: 42px 0;
+  margin: 42px 10px;
   padding: 15px 0 15px 0;
   border: 1px solid;
   border-radius: 10px;
@@ -52,11 +55,45 @@
 
 .diaryHeaderContainer {
   display: flex;
-  width: 500px;
+  width: 450px;
   margin: auto;
   justify-content: space-between;
 }
 
+.itemContainer {
+  display: flex;
+
+}
+
+.dateText {
+width: 160px;
+margin: 20px 10px
+}
+.distText {
+  width: 120px;
+  text-align: center;
+  margin: 20px 10px 
+}
+
+.deleteBtn {
+  width: 50px;
+  height: 20px;
+  margin: 20px 0 20px 70px;
+}
+
+
+.containerDiary {
+  width: 500px;
+  margin: auto;
+  border: 1px solid;
+  border-radius: 10px;
+}
+.myStepContainer {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
 
 
 

@@ -6,24 +6,40 @@ import { nanoid } from 'nanoid'
 function DateInput(props) {
     
     const {onAdd} = props;
-    const [form, setForm] = useState({name: ''});
-    const handleChange = evt => {
+    const [form, setFormDate] = useState({name: ''});
+    const [forms, setFormDist] = useState({distance: ''});
+    const handleChangeDate = evt => {
         const {name, value} = evt.target;
-        setForm(prevForm => ({...prevForm, [name]: value}));
+        setFormDate(prevForm => ({...prevForm, [name]: value}));
+    }
+    const handleChangeDist = evt => {
+        const {name, value} = evt.target;
+        setFormDist(prevForm => ({...prevForm, [name]: value}));
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        const book = new ModelDate(nanoid(), form.name);
+        const book = new ModelDate(nanoid(), form.name, forms.distance);
+        console.log(book)
         onAdd(book);
-        setForm({name: ''});
+        setFormDate({name: ''});
+        setFormDist({distance: ''});
     }
-console.log(form)
+    
     return (
-        <form className="containerInputDate" onSubmit={handleSubmit}>
-            <label htmlFor="dateInput">Дата (ДД.ММ.ГГ)</label>
-            <input className="input" id="dateInput" name="name" value={form.name} onChange={handleChange} />
-        </form>)
+        <div className="containerHeader">
+            <form className="containerInputDate" onSubmit={handleSubmit}>
+                <label htmlFor="dateInput">Дата (ДД.ММ.ГГ)</label>
+                <input className="input"  name="name" value={form.name} onChange={handleChangeDate} />
+            </form>
+            <form className="containerInputDistance" onSubmit={handleSubmit}>
+                <label htmlFor="distanceInput">Пройдено км</label>
+                <input className="input"  name="distance" value={forms.distance} onChange={handleChangeDist} />
+            </form>
+            <button className='buttonOk' onClick={handleSubmit}>Ok</button>
+        </div>
+    )
 }
+
 
 DateInput.propTypes = {
     onAdd: PropTypes.func.isRequired,

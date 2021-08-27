@@ -6,9 +6,9 @@ function DateList(props) {
     console.log(props)
     const {books} = props;
     return (
-        <ul>
+        <div className="myStepContainer">
             {books.map(o => <DateItem key={o.id} book={o} />)}
-        </ul>
+        </div>
     )
 }
 

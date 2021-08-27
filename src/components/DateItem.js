@@ -5,9 +5,16 @@ function DateItem(props)
  {
      const {book} = props;
      return (
-         <li key={book.id}>
-            {book.name}
-         </li>
+         <div className="itemContainer">
+            <div className="dateText" key={book.id}>
+                {book.name}
+            </div>
+            <div className="distText">
+                {book.distance}
+            </div>
+            <button className="deleteBtn"></button>
+         </div>
+         
      )
  }
 
