@@ -19,7 +19,6 @@ function DateInput(props) {
     const handleSubmit = evt => {
         evt.preventDefault();
         const book = new ModelDate(nanoid(), form.name, forms.distance);
-        console.log(book)
         onAdd(book);
         setFormDate({name: ''});
         setFormDist({distance: ''});
@@ -29,11 +28,11 @@ function DateInput(props) {
         <div className="containerHeader">
             <form className="containerInputDate" onSubmit={handleSubmit}>
                 <label htmlFor="dateInput">Дата (ДД.ММ.ГГ)</label>
-                <input className="input"  name="name" value={form.name} onChange={handleChangeDate} />
+                <input className="input" type="date"  name="name" value={form.name} onChange={handleChangeDate} />
             </form>
             <form className="containerInputDistance" onSubmit={handleSubmit}>
                 <label htmlFor="distanceInput">Пройдено км</label>
-                <input className="input"  name="distance" value={forms.distance} onChange={handleChangeDist} />
+                <input className="input" type="number"  name="distance" value={forms.distance} onChange={handleChangeDist} />
             </form>
             <button className='buttonOk' onClick={handleSubmit}>Ok</button>
         </div>

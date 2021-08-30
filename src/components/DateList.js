@@ -3,17 +3,19 @@ import DateItem from './DateItem';
 import ModelDate from './ModelDate';
 
 function DateList(props) {
-    console.log(props)
-    const {books} = props;
+    
+    const { books, onRemove: handleRemove } = props;
+    const sortBooks =books.sort((prev, next) => prev.name < next.name ? 1 : -1);
     return (
         <div className="myStepContainer">
-            {books.map(o => <DateItem key={o.id} book={o} />)}
+            {sortBooks.map(o => <DateItem key={o.id} book={o} onRemove={handleRemove}/>)}
         </div>
     )
 }
 
 DateList.propTypes = {
-    books: PropTypes.arrayOf(PropTypes.instanceOf(ModelDate)).isRequired
+    books: PropTypes.arrayOf(PropTypes.instanceOf(ModelDate)).isRequired,
+    onRemove: PropTypes.func.isRequired,
 }
 
 export default DateList

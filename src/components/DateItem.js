@@ -3,23 +3,27 @@ import ModelDate from './ModelDate';
 
 function DateItem(props)
  {
-     const {book} = props;
-     return (
-         <div className="itemContainer">
+    const { book, onRemove: handleRemove } = props;
+    
+    return (
+        <div className="itemContainer">
             <div className="dateText" key={book.id}>
                 {book.name}
             </div>
             <div className="distText">
                 {book.distance}
-            </div>
-            <button className="deleteBtn"></button>
-         </div>
-         
-     )
+             </div>
+             <div className="containerButton">
+                <button className="deleteBtn" onClick={() => handleRemove(book.id)}>X</button>
+             </div>
+             
+        </div>   
+    )
  }
 
  DateItem.propTypes = {
-     book: PropTypes.instanceOf(ModelDate).isRequired
+     book: PropTypes.instanceOf(ModelDate).isRequired,
+     onRemove: PropTypes.func.isRequired,
  }
 
  export default DateItem

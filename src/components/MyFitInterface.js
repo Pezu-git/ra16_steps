@@ -5,9 +5,10 @@ import DateList from './DateList';
 
 function MyFitInterface(prop) {
   const [books, setBooks] = useState([]);
-  const handleAdd = book => { setBooks(prevBooks => [...prevBooks, book]);}
-  const [filter, setFilter] = useState('');
-  console.log(books)
+  const handleAdd = book => { setBooks(prevBooks => [...prevBooks, book]); }
+  const handleRemove = id => {
+    setBooks(prevBooks => prevBooks.filter(o => o.id !== id));
+    }
 
   return (
     <div className="container">
@@ -20,19 +21,7 @@ function MyFitInterface(prop) {
           <p className="diaryHeaderText">Пройдено км</p>
           <p className="diaryHeaderText">Действия</p>
         </div>
-        <DateList books={books} />
-
-        <div className="diaryTableContainer">
-          <div className="dateColumn">
-
-          </div>
-          <div className="distanceColumn">
-            
-          </div>
-          <div className="todoColumn">
-            
-          </div>
-        </div>
+        <DateList books={books} onRemove={ handleRemove} />
       </div>
     </div>
   )
