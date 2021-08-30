@@ -1,11 +1,11 @@
 
 import './App.css';
-import MyFit from './components/MyFit';
+import MySteps from './components/MySteps';
 
 export default function App() {
   return (
     <div className='App'>
-      <MyFit />
+      <MySteps />
     </div>
   );
 }

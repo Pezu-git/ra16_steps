@@ -1,9 +1,9 @@
-import DateInput from './DateInput'
+import StepInput from './StepInput'
 import React, { useState } from "react";
-import DateList from './DateList';
+import StepList from './StepList';
 
 
-function MyFitInterface(prop) {
+function MySteps(prop) {
   const [books, setBooks] = useState([]);
   const handleAdd = book => { setBooks(prevBooks => [...prevBooks, book]); }
   const handleRemove = id => {
@@ -13,7 +13,7 @@ function MyFitInterface(prop) {
   return (
     <div className="container">
       
-          <DateInput onAdd={handleAdd} />
+          <StepInput onAdd={handleAdd} />
       
       <div className="containerDiary">
         <div className="diaryHeaderContainer">
@@ -21,10 +21,10 @@ function MyFitInterface(prop) {
           <p className="diaryHeaderText">Пройдено км</p>
           <p className="diaryHeaderText">Действия</p>
         </div>
-        <DateList books={books} onRemove={ handleRemove} />
+        <StepList books={books} onRemove={ handleRemove} />
       </div>
     </div>
   )
 }
 
-export default MyFitInterface
+export default MySteps

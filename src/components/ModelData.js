@@ -1,4 +1,4 @@
-class ModelDate {
+class ModelData {
     constructor(id, name, distance) {
         this.id = id
         this.name = name
@@ -6,4 +6,4 @@ class ModelDate {
     }
 }
 
-export default ModelDate
+export default ModelData

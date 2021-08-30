@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import ModelDate from './ModelDate';
+import ModelData from './ModelData';
 
-function DateItem(props)
+function StepItem(props)
  {
     const { book, onRemove: handleRemove } = props;
     
@@ -21,9 +21,9 @@ function DateItem(props)
     )
  }
 
- DateItem.propTypes = {
-     book: PropTypes.instanceOf(ModelDate).isRequired,
+ StepItem.propTypes = {
+     book: PropTypes.instanceOf(ModelData).isRequired,
      onRemove: PropTypes.func.isRequired,
  }
 
- export default DateItem
+ export default StepItem

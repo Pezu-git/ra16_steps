@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
 import { useState } from "react";
-import ModelDate from './ModelDate';
+import ModelData from './ModelData';
 import { nanoid } from 'nanoid'
 
-function DateInput(props) {
+function StepInput(props) {
     
     const {onAdd} = props;
     const [form, setFormDate] = useState({name: ''});
@@ -18,7 +18,7 @@ function DateInput(props) {
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        const book = new ModelDate(nanoid(), form.name, forms.distance);
+        const book = new ModelData(nanoid(), form.name, forms.distance);
         onAdd(book);
         setFormDate({name: ''});
         setFormDist({distance: ''});
@@ -40,8 +40,8 @@ function DateInput(props) {
 }
 
 
-DateInput.propTypes = {
+StepInput.propTypes = {
     onAdd: PropTypes.func.isRequired,
 }
 
-export default DateInput
+export default StepInput
