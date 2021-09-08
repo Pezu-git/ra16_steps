@@ -4,24 +4,27 @@ import StepList from './StepList';
 
 
 function MySteps(prop) {
-  const [books, setBooks] = useState([]);
-  const handleAdd = book => { setBooks(prevBooks => [...prevBooks, book]); }
+  const [steps, setSteps] = useState([]);
+  const handleAdd = step => {
+    setSteps(prevSteps => {
+      const prevStepsFilter = prevSteps.filter(o => o.name !== step.name)
+      return [...prevStepsFilter, step]
+    });
+  }
   const handleRemove = id => {
-    setBooks(prevBooks => prevBooks.filter(o => o.id !== id));
+    setSteps(prevSteps => prevSteps.filter(o => o.id !== id));
     }
 
   return (
-    <div className="container">
-      
-          <StepInput onAdd={handleAdd} />
-      
+    <div className="container">   
+      <StepInput onAdd={handleAdd} />
       <div className="containerDiary">
         <div className="diaryHeaderContainer">
           <p className="diaryHeaderText">Дата (ДД.ММ.ГГ)</p>
           <p className="diaryHeaderText">Пройдено км</p>
           <p className="diaryHeaderText">Действия</p>
         </div>
-        <StepList books={books} onRemove={ handleRemove} />
+        <StepList steps={steps} onRemove={ handleRemove} />
       </div>
     </div>
   )

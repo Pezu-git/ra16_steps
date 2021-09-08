@@ -4,17 +4,18 @@ import ModelData from './ModelData';
 
 function StepList(props) {
     
-    const { books, onRemove: handleRemove } = props;
-    const sortBooks =books.sort((prev, next) => prev.name < next.name ? 1 : -1);
+    const { steps, onRemove: handleRemove } = props;
+    const sortSteps = [...steps].sort((prev, next) => prev.name < next.name ? 1 : -1);
+    
     return (
         <div className="myStepContainer">
-            {sortBooks.map(o => <StepItem key={o.id} book={o} onRemove={handleRemove}/>)}
+            {sortSteps.map(o => <StepItem key={o.id} stepName = {o.name} step={o} onRemove={handleRemove}/>)}
         </div>
     )
 }
 
 StepList.propTypes = {
-    books: PropTypes.arrayOf(PropTypes.instanceOf(ModelData)).isRequired,
+    steps: PropTypes.arrayOf(PropTypes.instanceOf(ModelData)).isRequired,
     onRemove: PropTypes.func.isRequired,
 }
 

@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types'
-import { useState } from "react";
+import React, { useState } from "react";
 import ModelData from './ModelData';
 import { nanoid } from 'nanoid'
+import StepForms from './StepForms'
 
 function StepInput(props) {
     
@@ -18,24 +19,24 @@ function StepInput(props) {
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        const book = new ModelData(nanoid(), form.name, forms.distance);
-        onAdd(book);
-        setFormDate({name: ''});
-        setFormDist({distance: ''});
+        console.log(forms.distance)
+        if (form.name !== '' && forms.distance !== '') {
+            const step = new ModelData(nanoid(), form.name, forms.distance);
+            onAdd(step);
+            setFormDate({name: ''});
+            setFormDist({distance: ''});
+        }   
     }
     
     return (
-        <div className="containerHeader">
-            <form className="containerInputDate" onSubmit={handleSubmit}>
-                <label htmlFor="dateInput">Дата (ДД.ММ.ГГ)</label>
-                <input className="input" type="date"  name="name" value={form.name} onChange={handleChangeDate} />
-            </form>
-            <form className="containerInputDistance" onSubmit={handleSubmit}>
-                <label htmlFor="distanceInput">Пройдено км</label>
-                <input className="input" type="number"  name="distance" value={forms.distance} onChange={handleChangeDist} />
-            </form>
-            <button className='buttonOk' onClick={handleSubmit}>Ok</button>
-        </div>
+        <React.Fragment>
+            <StepForms 
+                onSubmit={handleSubmit} 
+                valueName={form.name}
+                valueDistance={forms.distance} 
+                onChangeDate={handleChangeDate}
+                onChangeDist={handleChangeDist} />
+        </React.Fragment>  
     )
 }
 
