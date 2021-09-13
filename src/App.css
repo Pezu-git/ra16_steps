@@ -100,7 +100,7 @@ input[type="number"]::-webkit-inner-spin-button {
 .deleteBtn {
   width: 20px;
   height: 20px;
-  margin-left: 5px;
+  margin-left: 15px;
 
   font-size: 10px;
 }

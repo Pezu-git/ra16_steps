@@ -16,10 +16,10 @@ function StepInput(props) {
     const handleChangeDist = evt => {
         const {name, value} = evt.target;
         setFormDist(prevForm => ({...prevForm, [name]: value}));
+        
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        console.log(forms.distance)
         if (form.name !== '' && forms.distance !== '') {
             const step = new ModelData(nanoid(), form.name, forms.distance);
             onAdd(step);

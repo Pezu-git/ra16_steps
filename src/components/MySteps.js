@@ -7,7 +7,12 @@ function MySteps(prop) {
   const [steps, setSteps] = useState([]);
   const handleAdd = step => {
     setSteps(prevSteps => {
-      const prevStepsFilter = prevSteps.filter(o => o.name !== step.name)
+      const prevStepsFilter = prevSteps.filter(o => {
+        if(o.name === step.name) {
+          step.distance = Number(step.distance) + Number(o.distance)
+        }
+        return o.name !== step.name
+      })
       return [...prevStepsFilter, step]
     });
   }
